@@ -2,6 +2,7 @@
   "name": "@jug-nx/back-api",
   "scripts": {
     "build": "./mvnw -Dmaven.test.skip package",
+    "dev": "./mvnw spring-boot:run -Dspring-boot.run.profiles=dev,local",
     "test": "./mvnw test"
   }
 }

@@ -26,7 +26,7 @@
     "build": {
       "dependsOn": ["^build"],
       "inputs": ["srcFiles", "jsConfig", "javaConfig"],
-      "outputs": ["{projectRoot}/build", "{projectRoot}/target/*.jar"]
+      "outputs": ["{projectRoot}/dist", "{projectRoot}/target/*.jar"]
     },
     "bundle": {
       "dependsOn": ["^build"],

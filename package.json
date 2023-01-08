@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "bundle": "nx run-many --target=bundle --verbose --output-style=stream",
-    "serve": "pnpm bundle && java -jar ./bundle/build/jug-nx.jar",
+    "serve": "pnpm bundle && java -jar ./bundle/dist/jug-nx.jar",
     "test": "nx run-many --target=test --verbose --output-style=stream"
   },
   "engines": {

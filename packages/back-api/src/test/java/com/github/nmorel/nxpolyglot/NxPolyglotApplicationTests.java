@@ -8,7 +8,6 @@ class NxPolyglotApplicationTests {
 
 	@Test
 	void contextLoads() {
-		System.out.println("BB");
 	}
 
 }

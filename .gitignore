@@ -1,5 +1,6 @@
-build/
+dist/
 target/
 .nx-cache/
 node_modules/
 .vscode/
+.DS_Store

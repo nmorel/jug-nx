@@ -19,7 +19,7 @@ async function getApiJarPath() {
   return path.join(apiFolder, "target", `${artifactId}-${version}.jar`);
 }
 
-const buildFolder = "build";
+const buildFolder = "dist";
 const apiJar = await getApiJarPath();
 const webappFolder = path.resolve(path.dirname(require.resolve("@jug-nx/front-app/package.json")), buildFolder);
 const targetJar = `${buildFolder}/jug-nx.jar`;
