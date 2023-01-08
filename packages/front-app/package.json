@@ -1,0 +1,6 @@
+{
+  "name": "@jug-nx/front-app",
+  "scripts": {
+    "build": "rm -rf ./build && mkdir build && cp -r ./src/* ./build"
+  }
+}
