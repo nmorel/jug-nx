@@ -1,0 +1,42 @@
+{
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "npmScope": "@jug-nx",
+  "affected": {
+    "defaultBase": "main"
+  },
+  "cli": {
+    "packageManager": "pnpm"
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "nx/tasks-runners/default",
+      "options": {
+        "cacheableOperations": ["build", "bundle", "test"],
+        "cacheDirectory": "./.nx-cache"
+      }
+    }
+  },
+  "namedInputs": {
+    "srcFiles": ["{projectRoot}/src/**/*", "!{projectRoot}/src/test/**/*"],
+    "testFiles": ["{projectRoot}/src/**/*", "{projectRoot}/test/**/*"],
+    "jsConfig": ["{projectRoot}/package.json", "{workspaceRoot}/package.json"],
+    "javaConfig": ["jsConfig", "{projectRoot}/pom.xml"]
+  },
+  "targetDefaults": {
+    "build": {
+      "dependsOn": ["^build"],
+      "inputs": ["srcFiles", "jsConfig", "javaConfig"],
+      "outputs": ["{projectRoot}/build", "{projectRoot}/target/*.jar"]
+    },
+    "bundle": {
+      "dependsOn": ["^build"],
+      "inputs": ["{projectRoot}/bundle.mjs", "jsConfig"],
+      "outputs": ["{projectRoot}/build/*.jar"]
+    },
+    "test": {
+      "dependsOn": [],
+      "inputs": ["testFiles", "jsConfig", "javaConfig"],
+      "outputs": ["{projectRoot}/target/surefire-reports"]
+    }
+  }
+}

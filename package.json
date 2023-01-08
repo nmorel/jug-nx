@@ -1,0 +1,17 @@
+{
+  "name": "jug-nx",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "bundle": "nx run-many --target=bundle --verbose --output-style=stream",
+    "serve": "pnpm bundle && java -jar ./bundle/build/jug-nx.jar",
+    "test": "nx run-many --target=test --verbose --output-style=stream"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "packageManager": "pnpm@7.13.4",
+  "devDependencies": {
+    "nx": "^15.4.5"
+  }
+}

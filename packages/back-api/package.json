@@ -1,0 +1,7 @@
+{
+  "name": "@jug-nx/back-api",
+  "scripts": {
+    "build": "./mvnw -Dmaven.test.skip package",
+    "test": "./mvnw test"
+  }
+}
