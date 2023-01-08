@@ -8,6 +8,7 @@ public class NxPolyglotApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(NxPolyglotApplication.class, args);
+		System.out.println("aaaaa");
 	}
 
 }
