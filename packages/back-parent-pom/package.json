@@ -1,0 +1,16 @@
+{
+  "name": "@jug-nx/back-parent-pom",
+  "scripts": {
+    "build": "cd ../../ && ./mvnw -no-transfer-progress clean install -N"
+  },
+  "nx": {
+    "targets": {
+      "build": {
+        "inputs": [
+          "{workspaceRoot}/pom.xml"
+        ],
+        "outputs": []
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "name": "@jug-nx/back-entities",
+  "scripts": {
+    "build": "cd ../.. && ./mvnw -DskipTests=true install -pl :jug-nx-entities"
+  },
+  "dependencies": {
+    "@jug-nx/back-parent-pom": "*"
+  }
+}
