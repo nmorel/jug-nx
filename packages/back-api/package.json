@@ -1,9 +1,9 @@
 {
   "name": "@jug-nx/back-api",
   "scripts": {
-    "build": "cd ../.. && ./mvnw -DskipTests=true package -pl :jug-nx-api",
-    "dev": "nx watch --projects=@jug-nx/back-api --includeDependencies -- nx build @jug-nx/back-api && ../../mvnw spring-boot:run -Dspring-boot.run.profiles=dev,local",
-    "test": "../../mvnw test",
+    "build": "cd ../.. && ./mvnw -pl :jug-nx-api -DskipTests=true clean package",
+    "dev": "cd ../.. && ./mvnw -pl :jug-nx-api -am spring-boot:run -Dspring-boot.run.profiles=dev,local",
+    "test": "cd ../.. && ./mvnw -pl :jug-nx-api test",
     "test:watch": "nx test @jug-nx/back-api && nx watch --projects=@jug-nx/back-parent-pom,@jug-nx/back-entities,@jug-nx/back-api -- nx test @jug-nx/back-api"
   },
   "dependencies": {

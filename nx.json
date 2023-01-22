@@ -37,6 +37,9 @@
       "dependsOn": ["^build"],
       "inputs": ["testFiles", "jsConfig", "javaConfig"],
       "outputs": ["{projectRoot}/target/surefire-reports"]
+    },
+    "dev": {
+      "dependsOn": ["^build"]
     }
   }
 }
