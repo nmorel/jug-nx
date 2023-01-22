@@ -1,7 +1,10 @@
 {
   "name": "@jug-nx/back-entities",
   "scripts": {
-    "build": "cd ../.. && ./mvnw -DskipTests=true install -pl :jug-nx-entities"
+    "build": "cd ../.. && ./mvnw -DskipTests=true install -pl :jug-nx-entities",
+    "dev": "nx watch --projects=@jug-nx/back-entities -- nx test @jug-nx/back-entities",
+    "test": "../../mvnw test",
+    "test:watch": "nx test @jug-nx/back-entities && nx watch --projects=@jug-nx/back-parent-pom,@jug-nx/back-entities -- nx test @jug-nx/back-entities"
   },
   "dependencies": {
     "@jug-nx/back-parent-pom": "*"

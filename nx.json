@@ -34,7 +34,7 @@
       "outputs": ["{projectRoot}/build/*.jar"]
     },
     "test": {
-      "dependsOn": [],
+      "dependsOn": ["^build"],
       "inputs": ["testFiles", "jsConfig", "javaConfig"],
       "outputs": ["{projectRoot}/target/surefire-reports"]
     }

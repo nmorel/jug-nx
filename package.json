@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "bundle": "nx run-many --target=bundle --verbose --output-style=stream",
+    "dev": "nx run-many --target=dev --verbose --output-style=stream",
     "serve": "pnpm bundle && java -jar ./bundle/dist/jug-nx.jar",
     "test": "nx run-many --target=test --verbose --output-style=stream"
   },
@@ -12,6 +13,6 @@
   },
   "packageManager": "pnpm@7.13.4",
   "devDependencies": {
-    "nx": "^15.4.5"
+    "nx": "^15.5.3"
   }
 }
