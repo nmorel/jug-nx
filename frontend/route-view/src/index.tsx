@@ -1,11 +1,11 @@
 import { Form, LoaderFunctionArgs, useLoaderData } from "react-router-dom";
-import { getTodo } from "../apis/todos";
+import { getTodo } from "@front/api-client";
 
 export async function loader({ params }: LoaderFunctionArgs) {
   return getTodo(params.todoId as string);
 }
 
-export function Todo() {
+export function View() {
   const todo = useLoaderData() as Awaited<ReturnType<typeof loader>>;
 
   return (

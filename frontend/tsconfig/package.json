@@ -1,0 +1,10 @@
+{
+  "name": "@front/tsconfig",
+  "private": true,
+  "version": "0.0.0",
+  "files": [
+    "tsconfig.app.json",
+    "tsconfig.base.json",
+    "tsconfig.lib.json"
+  ]
+}

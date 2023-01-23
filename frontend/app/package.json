@@ -10,13 +10,19 @@
     "test:watch": "vitest"
   },
   "dependencies": {
-    "@tanstack/react-query": "^4.22.4",
+    "@front/api-client": "workspace:*",
+    "@front/route-destroy": "workspace:*",
+    "@front/route-edit": "workspace:*",
+    "@front/route-index": "workspace:*",
+    "@front/route-root": "workspace:*",
+    "@front/route-view": "workspace:*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.7.0",
     "wretch": "^2.4.1"
   },
   "devDependencies": {
+    "@front/tsconfig": "workspace:*",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.9",
     "@vitejs/plugin-react-swc": "^3.0.0",

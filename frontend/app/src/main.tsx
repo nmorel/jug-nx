@@ -1,16 +1,14 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
+import * as React from "react";
+import * as ReactDOM from "react-dom/client";
 import "./index.css";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { Root, loader as rootLoader, action as rootAction } from "./routes/root";
+import { Root, loader as rootLoader, action as rootAction } from "@front/route-root";
 import { ErrorPage } from "./components/ErrorPage";
-import { Todo, loader as todoLoader } from "./routes/todo";
-import { EditTodo, loader as editTodoLoader, action as editTodoAction } from "./routes/edit";
-import { action as destroyTodoAction } from "./routes/destroy";
-import { Index } from "./routes";
+import { View, loader as viewLoader } from "@front/route-view";
+import { Edit, loader as editLoader, action as editAction } from "@front/route-edit";
+import { action as destroyTodoAction } from "@front/route-destroy";
+import { Index } from "@front/route-index";
 
-const queryClient = new QueryClient();
 const router = createBrowserRouter([
   {
     path: "/",
@@ -28,14 +26,14 @@ const router = createBrowserRouter([
           },
           {
             path: "todos/:todoId",
-            element: <Todo />,
-            loader: todoLoader,
+            element: <View />,
+            loader: viewLoader,
           },
           {
             path: "todos/:todoId/edit",
-            element: <EditTodo />,
-            loader: editTodoLoader,
-            action: editTodoAction,
+            element: <Edit />,
+            loader: editLoader,
+            action: editAction,
           },
           {
             path: "todos/:todoId/destroy",
@@ -49,8 +47,6 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
-    </QueryClientProvider>
+    <RouterProvider router={router} />
   </React.StrictMode>
 );

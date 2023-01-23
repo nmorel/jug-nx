@@ -1,5 +1,5 @@
 import { ActionFunctionArgs, Form, LoaderFunctionArgs, redirect, useLoaderData, useNavigate } from "react-router-dom";
-import { getTodo, updateTodo } from "../apis/todos";
+import { getTodo, updateTodo } from "@front/api-client";
 
 export async function loader({ params }: LoaderFunctionArgs) {
   return getTodo(params.todoId as string);
@@ -17,7 +17,7 @@ export async function action({ request, params }: ActionFunctionArgs) {
   return redirect(`/todos/${todoId}`);
 }
 
-export function EditTodo() {
+export function Edit() {
   const todo = useLoaderData() as Awaited<ReturnType<typeof loader>>;
   const navigate = useNavigate();
 

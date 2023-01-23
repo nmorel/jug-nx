@@ -19,7 +19,7 @@
   "namedInputs": {
     "srcFiles": ["{projectRoot}/src/**/*", "!{projectRoot}/src/test/**/*"],
     "testFiles": ["{projectRoot}/src/**/*", "{projectRoot}/test/**/*"],
-    "jsConfig": ["{projectRoot}/package.json", "{workspaceRoot}/package.json"],
+    "jsConfig": ["{projectRoot}/package.json", "{workspaceRoot}/package.json", "{projectRoot}/tsconfig*.json"],
     "javaConfig": ["jsConfig", "{projectRoot}/pom.xml"],
     "buildFiles": ["srcFiles", "jsConfig", "javaConfig"]
   },

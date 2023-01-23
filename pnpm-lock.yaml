@@ -8,38 +8,61 @@ importers:
     devDependencies:
       nx: 15.5.3
 
+  backend/api:
+    specifiers:
+      '@back/entities': '*'
+      '@back/parent-pom': '*'
+      '@back/repositories': '*'
+    dependencies:
+      '@back/entities': link:../entities
+      '@back/parent-pom': link:../parent-pom
+      '@back/repositories': link:../repositories
+
+  backend/entities:
+    specifiers:
+      '@back/parent-pom': '*'
+    dependencies:
+      '@back/parent-pom': link:../parent-pom
+
+  backend/parent-pom:
+    specifiers: {}
+
+  backend/repositories:
+    specifiers:
+      '@back/entities': '*'
+      '@back/parent-pom': '*'
+    dependencies:
+      '@back/entities': link:../entities
+      '@back/parent-pom': link:../parent-pom
+
   bundle:
     specifiers:
-      '@jug-nx/back-api': '*'
-      '@jug-nx/front-app': '*'
       fast-xml-parser: ^4.0.14
       zx: ^7.1.1
     dependencies:
-      '@jug-nx/back-api': link:../packages/back-api
-      '@jug-nx/front-app': link:../packages/front-app
       fast-xml-parser: 4.0.14
       zx: 7.1.1
 
-  packages/back-api:
+  frontend/api-client:
     specifiers:
-      '@jug-nx/back-entities': '*'
-      '@jug-nx/back-parent-pom': '*'
+      '@front/tsconfig': workspace:*
+      typescript: ^4.9.3
+      wretch: ^2.4.1
     dependencies:
-      '@jug-nx/back-entities': link:../back-entities
-      '@jug-nx/back-parent-pom': link:../back-parent-pom
+      wretch: 2.4.1
+    devDependencies:
+      '@front/tsconfig': link:../tsconfig
+      typescript: 4.9.4
 
-  packages/back-entities:
+  frontend/app:
     specifiers:
-      '@jug-nx/back-parent-pom': '*'
-    dependencies:
-      '@jug-nx/back-parent-pom': link:../back-parent-pom
-
-  packages/back-parent-pom:
-    specifiers: {}
-
-  packages/front-app:
-    specifiers:
-      '@tanstack/react-query': ^4.22.4
+      '@front/api-client': workspace:*
+      '@front/route-destroy': workspace:*
+      '@front/route-edit': workspace:*
+      '@front/route-index': workspace:*
+      '@front/route-root': workspace:*
+      '@front/route-view': workspace:*
+      '@front/tsconfig': workspace:*
       '@types/react': ^18.0.27
       '@types/react-dom': ^18.0.9
       '@vitejs/plugin-react-swc': ^3.0.0
@@ -51,18 +74,132 @@ importers:
       vitest: ^0.27.3
       wretch: ^2.4.1
     dependencies:
-      '@tanstack/react-query': 4.22.4_biqbaboplfbrettd7655fr4n2y
+      '@front/api-client': link:../api-client
+      '@front/route-destroy': link:../route-destroy
+      '@front/route-edit': link:../route-edit
+      '@front/route-index': link:../route-index
+      '@front/route-root': link:../route-root
+      '@front/route-view': link:../route-view
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       react-router-dom: 6.7.0_biqbaboplfbrettd7655fr4n2y
       wretch: 2.4.1
     devDependencies:
+      '@front/tsconfig': link:../tsconfig
       '@types/react': 18.0.27
       '@types/react-dom': 18.0.10
       '@vitejs/plugin-react-swc': 3.0.1_vite@4.0.4
       typescript: 4.9.4
       vite: 4.0.4
       vitest: 0.27.3
+
+  frontend/route-destroy:
+    specifiers:
+      '@front/api-client': workspace:*
+      '@front/tsconfig': workspace:*
+      '@types/react': ^18.0.27
+      '@types/react-dom': ^18.0.9
+      react: ^18.2.0
+      react-dom: ^18.2.0
+      react-router-dom: ^6.7.0
+      typescript: ^4.9.3
+    dependencies:
+      '@front/api-client': link:../api-client
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+      react-router-dom: 6.7.0_biqbaboplfbrettd7655fr4n2y
+    devDependencies:
+      '@front/tsconfig': link:../tsconfig
+      '@types/react': 18.0.27
+      '@types/react-dom': 18.0.10
+      typescript: 4.9.4
+
+  frontend/route-edit:
+    specifiers:
+      '@front/api-client': workspace:*
+      '@front/tsconfig': workspace:*
+      '@types/react': ^18.0.27
+      '@types/react-dom': ^18.0.9
+      react: ^18.2.0
+      react-dom: ^18.2.0
+      react-router-dom: ^6.7.0
+      typescript: ^4.9.3
+    dependencies:
+      '@front/api-client': link:../api-client
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+      react-router-dom: 6.7.0_biqbaboplfbrettd7655fr4n2y
+    devDependencies:
+      '@front/tsconfig': link:../tsconfig
+      '@types/react': 18.0.27
+      '@types/react-dom': 18.0.10
+      typescript: 4.9.4
+
+  frontend/route-index:
+    specifiers:
+      '@front/api-client': workspace:*
+      '@front/tsconfig': workspace:*
+      '@types/react': ^18.0.27
+      '@types/react-dom': ^18.0.9
+      react: ^18.2.0
+      react-dom: ^18.2.0
+      react-router-dom: ^6.7.0
+      typescript: ^4.9.3
+    dependencies:
+      '@front/api-client': link:../api-client
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+      react-router-dom: 6.7.0_biqbaboplfbrettd7655fr4n2y
+    devDependencies:
+      '@front/tsconfig': link:../tsconfig
+      '@types/react': 18.0.27
+      '@types/react-dom': 18.0.10
+      typescript: 4.9.4
+
+  frontend/route-root:
+    specifiers:
+      '@front/api-client': workspace:*
+      '@front/tsconfig': workspace:*
+      '@types/react': ^18.0.27
+      '@types/react-dom': ^18.0.9
+      react: ^18.2.0
+      react-dom: ^18.2.0
+      react-router-dom: ^6.7.0
+      typescript: ^4.9.3
+    dependencies:
+      '@front/api-client': link:../api-client
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+      react-router-dom: 6.7.0_biqbaboplfbrettd7655fr4n2y
+    devDependencies:
+      '@front/tsconfig': link:../tsconfig
+      '@types/react': 18.0.27
+      '@types/react-dom': 18.0.10
+      typescript: 4.9.4
+
+  frontend/route-view:
+    specifiers:
+      '@front/api-client': workspace:*
+      '@front/tsconfig': workspace:*
+      '@types/react': ^18.0.27
+      '@types/react-dom': ^18.0.9
+      react: ^18.2.0
+      react-dom: ^18.2.0
+      react-router-dom: ^6.7.0
+      typescript: ^4.9.3
+    dependencies:
+      '@front/api-client': link:../api-client
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+      react-router-dom: 6.7.0_biqbaboplfbrettd7655fr4n2y
+    devDependencies:
+      '@front/tsconfig': link:../tsconfig
+      '@types/react': 18.0.27
+      '@types/react-dom': 18.0.10
+      typescript: 4.9.4
+
+  frontend/tsconfig:
+    specifiers: {}
 
 packages:
 
@@ -423,28 +560,6 @@ packages:
       '@swc/core-win32-ia32-msvc': 1.3.25
       '@swc/core-win32-x64-msvc': 1.3.25
     dev: true
-
-  /@tanstack/query-core/4.22.4:
-    resolution: {integrity: sha512-t79CMwlbBnj+yL82tEcmRN93bL4U3pae2ota4t5NN2z3cIeWw74pzdWrKRwOfTvLcd+b30tC+ciDlfYOKFPGUw==}
-    dev: false
-
-  /@tanstack/react-query/4.22.4_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-e5j5Z88XUQGeEPMyz5XF1V0mMf6Da+6URXiTpZfUb9nuHs2nlNoA+EoIvnhccE5b9YT6Yg7kARhn2L7u94M/4A==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-      react-native: '*'
-    peerDependenciesMeta:
-      react-dom:
-        optional: true
-      react-native:
-        optional: true
-    dependencies:
-      '@tanstack/query-core': 4.22.4
-      react: 18.2.0
-      react-dom: 18.2.0_react@18.2.0
-      use-sync-external-store: 1.2.0_react@18.2.0
-    dev: false
 
   /@types/chai-subset/1.3.3:
     resolution: {integrity: sha512-frBecisrNGz+F4T6bcc+NLeolfiojh5FxW2klu669+8BARtyQv2C/GkNW6FUodVe4BroGMP/wER/YDGc7rEllw==}
@@ -1683,14 +1798,6 @@ packages:
   /universalify/2.0.0:
     resolution: {integrity: sha512-hAZsKq7Yy11Zu1DE0OzWjw7nnLZmJZYTDZZyEFHZdUhV8FkH5MCfoU1XMaxXovpyW5nq5scPqq0ZDP9Zyl04oQ==}
     engines: {node: '>= 10.0.0'}
-
-  /use-sync-external-store/1.2.0_react@18.2.0:
-    resolution: {integrity: sha512-eEgnFxGQ1Ife9bzYs6VLi8/4X6CObHMw9Qr9tPY43iKwsPw8xE8+EFsf/2cFZ5S3esXgpWgtSCtLNS41F+sKPA==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    dependencies:
-      react: 18.2.0
-    dev: false
 
   /util-deprecate/1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}

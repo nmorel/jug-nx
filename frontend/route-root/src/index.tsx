@@ -1,5 +1,5 @@
 import { ActionFunctionArgs, Form, NavLink, Outlet, redirect, useLoaderData, useNavigation } from "react-router-dom";
-import { createTodo, getTodos } from "../apis/todos";
+import { createTodo, getTodos } from "@front/api-client";
 
 export async function loader() {
   const todos = await getTodos();
