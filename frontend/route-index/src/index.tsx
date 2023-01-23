@@ -5,5 +5,5 @@ export function Index() {
       <br />
       Check out <a href="https://github.com/nmorel/jug-nx">the repo</a>.
     </p>
-  );
+  )
 }

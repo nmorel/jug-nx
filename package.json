@@ -6,13 +6,17 @@
     "build": "nx run-many --target=build",
     "dev": "nx run-many --target=dev --verbose --output-style=stream",
     "serve": "pnpm build && java -jar ./bundle/dist/nx-polyglot.war --spring.datasource.url=jdbc:h2:file:./backend/data/demo",
-    "test": "nx run-many --target=test"
+    "test": "nx run-many --target=test",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json}\""
   },
   "engines": {
     "node": ">=18"
   },
   "packageManager": "pnpm@7.13.4",
   "devDependencies": {
-    "nx": "^15.5.3"
+    "eslint-config-custom": "workspace:*",
+    "nx": "^15.5.3",
+    "prettier": "^2.8.3",
+    "prettier-config-custom": "workspace:*"
   }
 }

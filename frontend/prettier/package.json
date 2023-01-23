@@ -1,0 +1,11 @@
+{
+  "name": "prettier-config-custom",
+  "version": "0.0.0",
+  "main": "src/index.js",
+  "dependencies": {
+    "prettier": "latest"
+  },
+  "devDependencies": {
+    "typescript": "^4.9.3"
+  }
+}

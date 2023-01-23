@@ -2,12 +2,12 @@
   "extends": "@front/tsconfig/tsconfig.app.json",
   "include": ["src"],
   "references": [
-    { "path": "./tsconfig.node.json" },
-    { "path": "../api-client" },
-    { "path": "../route-destroy" },
-    { "path": "../route-edit" },
-    { "path": "../route-index" },
-    { "path": "../route-root" },
-    { "path": "../route-view" }
+    {"path": "./tsconfig.node.json"},
+    {"path": "../api-client"},
+    {"path": "../route-destroy"},
+    {"path": "../route-edit"},
+    {"path": "../route-index"},
+    {"path": "../route-root"},
+    {"path": "../route-view"}
   ]
 }
