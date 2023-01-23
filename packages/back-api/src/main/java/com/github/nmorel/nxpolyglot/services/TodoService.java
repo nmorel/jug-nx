@@ -19,7 +19,7 @@ public class TodoService {
     }
 
     public Iterable<Todo> getAll() {
-        return todoItemRepository.findAll();
+        return todoItemRepository.findAllByOrderByCompleteAscCreatedAtDesc();
     }
 
     public Todo save(Todo todo) {

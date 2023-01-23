@@ -32,6 +32,7 @@ public class TodoController {
     public Todo updateTodo(@RequestBody Todo newTodo, @PathVariable Long id) {
         return this.todoService.getById(id)
                 .map(todo -> {
+                    todo.setTitle(newTodo.getTitle());
                     todo.setDescription(newTodo.getDescription());
                     todo.setComplete(newTodo.isComplete());
                     return this.todoService.save(todo);

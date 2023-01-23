@@ -14,9 +14,11 @@ public class Todo implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    private String title;
+
     private String description;
 
-    private Boolean complete;
+    private boolean complete;
 
     private Instant createdAt;
 
@@ -25,8 +27,9 @@ public class Todo implements Serializable {
     Todo() {
     }
 
-    Todo(String description) {
-        this.description = description;
+    Todo(String title) {
+        this.title = title;
+        this.description = null;
         this.complete = false;
         this.createdAt = Instant.now();
         this.updatedAt = Instant.now();
@@ -36,11 +39,15 @@ public class Todo implements Serializable {
         return this.id;
     }
 
+    public String getTitle() {
+        return this.title;
+    }
+
     public String getDescription() {
         return this.description;
     }
 
-    public Boolean isComplete() {
+    public boolean isComplete() {
         return this.complete;
     }
 
@@ -56,11 +63,15 @@ public class Todo implements Serializable {
         this.id = id;
     }
 
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     public void setDescription(String description) {
         this.description = description;
     }
 
-    public void setComplete(Boolean complete) {
+    public void setComplete(boolean complete) {
         this.complete = complete;
     }
 
@@ -81,19 +92,21 @@ public class Todo implements Serializable {
             return false;
         }
         Todo todo = (Todo) o;
-        return Objects.equals(this.id, todo.id) && Objects.equals(this.description, todo.description)
+        return Objects.equals(this.id, todo.id) && Objects.equals(this.title, todo.title)
+                && Objects.equals(this.description, todo.description)
                 && Objects.equals(this.complete, todo.complete) && Objects.equals(this.createdAt, todo.createdAt)
                 && Objects.equals(this.updatedAt, todo.updatedAt);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(this.id, this.description, this.complete, this.createdAt, this.updatedAt);
+        return Objects.hash(this.id, this.title, this.description, this.complete, this.createdAt, this.updatedAt);
     }
 
     @Override
     public String toString() {
-        return String.format("TodoItem{id=%d, description='%s', complete='%s', createdAt='%s', updatedAt='%s'}",
-                this.id, this.description, this.complete, this.createdAt, this.updatedAt);
+        return String.format(
+                "TodoItem{id=%d, title='%s', description='%s', complete='%s', createdAt='%s', updatedAt='%s'}",
+                this.id, this.title, this.description, this.complete, this.createdAt, this.updatedAt);
     }
 }
