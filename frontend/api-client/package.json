@@ -6,13 +6,15 @@
   "main": "dist/src/index.js",
   "scripts": {
     "dev": "nx build @front/api-client && nx watch --projects=@front/api-client -- nx build @front/api-client",
-    "build": "tsc"
+    "build": "tsc",
+    "lint": "eslint src/"
   },
   "dependencies": {
     "wretch": "^2.4.1"
   },
   "devDependencies": {
     "@front/tsconfig": "workspace:*",
+    "eslint": "^8.25.0",
     "typescript": "^4.9.3"
   }
 }

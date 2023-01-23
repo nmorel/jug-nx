@@ -1,4 +1,5 @@
 packages:
-  - "backend/*"
-  - "frontend/*"
-  - "bundle"
+  - 'backend/*'
+  - 'bundle'
+  - 'configs/*'
+  - 'frontend/*'

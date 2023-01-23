@@ -11,7 +11,7 @@
     "default": {
       "runner": "nx/tasks-runners/default",
       "options": {
-        "cacheableOperations": ["build", "test"],
+        "cacheableOperations": ["build", "test", "lint"],
         "cacheDirectory": "./.nx-cache"
       }
     }
@@ -25,6 +25,17 @@
       "{projectRoot}/tsconfig*.json"
     ],
     "javaConfig": ["jsConfig", "{projectRoot}/pom.xml"],
+    "prettierConfig": [
+      "{workspaceRoot}/.prettierrc.js",
+      "{workspaceRoot}/configs/prettier/src/**/*",
+      "{workspaceRoot}/configs/prettier/package.json"
+    ],
+    "eslintConfig": [
+      "prettierConfig",
+      "{workspaceRoot}/.eslintrc.js",
+      "{workspaceRoot}/configs/eslint/src/**/*",
+      "{workspaceRoot}/configs/eslint/package.json"
+    ],
     "buildFiles": ["srcFiles", "jsConfig", "javaConfig"]
   },
   "targetDefaults": {
@@ -37,6 +48,11 @@
       "dependsOn": ["^build"],
       "inputs": ["testFiles", "jsConfig", "javaConfig", "^buildFiles"],
       "outputs": ["{projectRoot}/target/surefire-reports"]
+    },
+    "lint": {
+      "dependsOn": ["^build"],
+      "inputs": ["srcFiles", "testFiles", "eslintConfig"],
+      "outputs": []
     },
     "dev": {
       "dependsOn": ["^build"]
