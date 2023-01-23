@@ -23,6 +23,7 @@
   <modules>
     <module>backend/api</module>
     <module>backend/entities</module>
+    <module>backend/repositories</module>
   </modules>
 
   <build>
