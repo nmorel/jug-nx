@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "bundle": "nx run-many --target=bundle",
+    "build": "nx run-many --target=build",
     "dev": "nx run-many --target=dev --verbose --output-style=stream",
-    "serve": "pnpm bundle && java -jar ./bundle/dist/jug-nx.jar --spring.datasource.url=jdbc:h2:file:./data/demo",
+    "serve": "pnpm build && java -jar ./bundle/dist/jug-nx.war --spring.datasource.url=jdbc:h2:file:./data/demo",
     "test": "nx run-many --target=test"
   },
   "engines": {

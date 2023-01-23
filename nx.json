@@ -11,7 +11,7 @@
     "default": {
       "runner": "nx/tasks-runners/default",
       "options": {
-        "cacheableOperations": ["build", "bundle", "test"],
+        "cacheableOperations": ["build", "test"],
         "cacheDirectory": "./.nx-cache"
       }
     }
@@ -20,22 +20,18 @@
     "srcFiles": ["{projectRoot}/src/**/*", "!{projectRoot}/src/test/**/*"],
     "testFiles": ["{projectRoot}/src/**/*", "{projectRoot}/test/**/*"],
     "jsConfig": ["{projectRoot}/package.json", "{workspaceRoot}/package.json"],
-    "javaConfig": ["jsConfig", "{projectRoot}/pom.xml"]
+    "javaConfig": ["jsConfig", "{projectRoot}/pom.xml"],
+    "buildFiles": ["srcFiles", "jsConfig", "javaConfig"]
   },
   "targetDefaults": {
     "build": {
       "dependsOn": ["^build"],
-      "inputs": ["srcFiles", "jsConfig", "javaConfig"],
-      "outputs": ["{projectRoot}/dist", "{projectRoot}/target/*.jar"]
-    },
-    "bundle": {
-      "dependsOn": ["^build"],
-      "inputs": ["{projectRoot}/bundle.mjs", "jsConfig"],
-      "outputs": ["{projectRoot}/build/*.jar"]
+      "inputs": ["buildFiles", "^buildFiles"],
+      "outputs": ["{projectRoot}/dist", "{projectRoot}/target/*.jar", "{projectRoot}/target/*.war"]
     },
     "test": {
       "dependsOn": ["^build"],
-      "inputs": ["testFiles", "jsConfig", "javaConfig"],
+      "inputs": ["testFiles", "jsConfig", "javaConfig", "^buildFiles"],
       "outputs": ["{projectRoot}/target/surefire-reports"]
     },
     "dev": {
