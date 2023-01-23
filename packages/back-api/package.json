@@ -2,7 +2,7 @@
   "name": "@jug-nx/back-api",
   "scripts": {
     "build": "cd ../.. && ./mvnw -pl :jug-nx-api -DskipTests=true clean package",
-    "dev": "cd ../.. && ./mvnw -pl :jug-nx-api -am spring-boot:run -Dspring-boot.run.profiles=dev,local",
+    "dev": "cd ../.. && ./mvnw -pl :jug-nx-api -am spring-boot:run -Dspring-boot.run.profiles=dev,local -Dspring-boot.run.arguments=\"--spring.datasource.url=jdbc:h2:file:../../data/demo\"",
     "test": "cd ../.. && ./mvnw -pl :jug-nx-api test",
     "test:watch": "nx test @jug-nx/back-api && nx watch --projects=@jug-nx/back-parent-pom,@jug-nx/back-entities,@jug-nx/back-api -- nx test @jug-nx/back-api"
   },
