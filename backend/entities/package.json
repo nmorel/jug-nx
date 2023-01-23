@@ -1,0 +1,11 @@
+{
+  "name": "@back/entities",
+  "scripts": {
+    "build": "cd ../.. && ./mvnw -pl :entities -DskipTests=true clean install",
+    "test": "cd ../.. && ./mvnw -pl :entities test",
+    "test:watch": "nx test @back/entities && nx watch --projects=@back/parent-pom,@back/entities -- nx test @back/entities"
+  },
+  "dependencies": {
+    "@back/parent-pom": "*"
+  }
+}

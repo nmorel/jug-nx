@@ -1,0 +1,13 @@
+{
+  "name": "@back/api",
+  "scripts": {
+    "build": "cd ../.. && ./mvnw -pl :api -DskipTests=true clean package",
+    "dev": "cd ../.. && ./mvnw -pl :api -am spring-boot:run -Dspring-boot.run.profiles=dev,local -Dspring-boot.run.arguments=\"--spring.datasource.url=jdbc:h2:file:../data/demo\"",
+    "test": "cd ../.. && ./mvnw -pl :api test",
+    "test:watch": "nx test @back/api && nx watch --projects=@back/parent-pom,@back/entities,@back/api -- nx test @back/api"
+  },
+  "dependencies": {
+    "@back/entities": "*",
+    "@back/parent-pom": "*"
+  }
+}

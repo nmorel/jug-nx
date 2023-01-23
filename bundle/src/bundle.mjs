@@ -1,32 +1,31 @@
 #!/usr/bin/env zx
 
 import "zx/globals";
-import { createRequire } from "module";
 import path from "node:path";
 import { XMLParser } from "fast-xml-parser";
 import { readFile } from "fs/promises";
 
-const require = createRequire(import.meta.url);
+const apiFolder = path.join(__dirname, "../../backend/api");
 
-async function getApiJarPath() {
-  const apiFolder = path.join(__dirname, "../../packages/back-api");
-  const pomXmlData = await readFile(path.join(apiFolder, "pom.xml"));
+// Api informations
+const pomXmlData = await readFile(path.join(apiFolder, "pom.xml"));
+const parser = new XMLParser();
+const {
+  project: { artifactId, version, packaging },
+} = parser.parse(pomXmlData);
 
-  const parser = new XMLParser();
-  const {
-    project: { artifactId, version },
-  } = parser.parse(pomXmlData);
-  return path.join(apiFolder, "target", `${artifactId}-${version}.war`);
-}
+const apiArtifact = path.join(apiFolder, "target", `${artifactId}-${version}.${packaging}`);
 
-const apiJar = await getApiJarPath();
-const webappFolder = path.join(__dirname, "../../packages/front-app/dist");
+// Webapp informations
+const webappFolder = path.join(__dirname, "../../frontend/app/dist");
+
+// Bundle informations
 const buildFolder = path.join(__dirname, "../dist");
-const targetJar = `${buildFolder}/jug-nx.war`;
+const targetArtifact = `${buildFolder}/nx-polyglot.${packaging}`;
 
 await $`rm -rf ${buildFolder}/*`;
 await $`mkdir -p ${buildFolder}/WEB-INF/classes/static`;
-await $`cp ${apiJar} ${targetJar}`;
+await $`cp ${apiArtifact} ${targetArtifact}`;
 await $`cp -r ${webappFolder}/* ${buildFolder}/WEB-INF/classes/static/`;
-await $`jar uf ${targetJar} -C ${buildFolder}/ WEB-INF/`;
+await $`jar uf ${targetArtifact} -C ${buildFolder}/ WEB-INF/`;
 await $`rm -rf ./${buildFolder}/WEB-INF`;

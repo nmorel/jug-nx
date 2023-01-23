@@ -1,5 +1,5 @@
 {
-  "name": "@jug-nx/back-parent-pom",
+  "name": "@back/parent-pom",
   "scripts": {
     "build": "cd ../../ && ./mvnw -no-transfer-progress clean install -N"
   },

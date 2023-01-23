@@ -3,17 +3,17 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>com.github.nmorel</groupId>
-		<artifactId>jug-nx</artifactId>
+		<groupId>com.github.nmorel.nxpolyglot</groupId>
+		<artifactId>parent</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 		<relativePath>../..</relativePath>
 	</parent>
 
-	<groupId>com.github.nmorel</groupId>
-	<artifactId>jug-nx-entities</artifactId>
+	<groupId>com.github.nmorel.nxpolyglot</groupId>
+	<artifactId>entities</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
-	<name>jug-nx-entities</name>
+	<name>entities</name>
 	<description>Entities</description>
 
 	<dependencies>

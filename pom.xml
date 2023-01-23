@@ -11,8 +11,8 @@
     <!-- lookup parent from repository -->
   </parent>
 
-  <groupId>com.github.nmorel</groupId>
-  <artifactId>jug-nx</artifactId>
+  <groupId>com.github.nmorel.nxpolyglot</groupId>
+  <artifactId>parent</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
 
@@ -21,8 +21,8 @@
   </properties>
 
   <modules>
-    <module>packages/back-api</module>
-    <module>packages/back-entities</module>
+    <module>backend/api</module>
+    <module>backend/entities</module>
   </modules>
 
   <build>

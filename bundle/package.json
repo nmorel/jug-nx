@@ -1,5 +1,5 @@
 {
-  "name": "@jug-nx/bundle",
+  "name": "bundle",
   "scripts": {
     "build": "zx ./src/bundle.mjs"
   },
@@ -9,8 +9,8 @@
   },
   "nx": {
     "implicitDependencies": [
-      "@jug-nx/back-api",
-      "@jug-nx/front-app"
+      "@back/api",
+      "@front/app"
     ]
   }
 }
