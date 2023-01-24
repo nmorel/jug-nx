@@ -1,0 +1,11 @@
+{
+  "name": "@back/parent-pom",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "targets": {
+    "build": {
+      "command": "./mvnw -no-transfer-progress clean install -N",
+      "inputs": ["{workspaceRoot}/pom.xml"],
+      "outputs": []
+    }
+  }
+}

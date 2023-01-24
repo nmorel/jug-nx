@@ -18,33 +18,6 @@ importers:
       prettier: 2.8.3
       prettier-config-custom: link:configs/prettier
 
-  backend/api:
-    specifiers:
-      '@back/entities': '*'
-      '@back/parent-pom': '*'
-      '@back/repositories': '*'
-    dependencies:
-      '@back/entities': link:../entities
-      '@back/parent-pom': link:../parent-pom
-      '@back/repositories': link:../repositories
-
-  backend/entities:
-    specifiers:
-      '@back/parent-pom': '*'
-    dependencies:
-      '@back/parent-pom': link:../parent-pom
-
-  backend/parent-pom:
-    specifiers: {}
-
-  backend/repositories:
-    specifiers:
-      '@back/entities': '*'
-      '@back/parent-pom': '*'
-    dependencies:
-      '@back/entities': link:../entities
-      '@back/parent-pom': link:../parent-pom
-
   bundle:
     specifiers:
       fast-xml-parser: ^4.0.14

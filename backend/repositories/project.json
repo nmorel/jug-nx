@@ -1,0 +1,24 @@
+{
+  "name": "@back/repositories",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "./mvnw -pl :repositories -DskipTests=true clean package"
+      }
+    },
+    "test": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "./mvnw -pl :repositories test"
+      }
+    },
+    "test:watch": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "nx test @back/repositories && nx watch --projects=@back/parent-pom,@back/entities,@back/repositories -- nx test @back/repositories"
+      }
+    }
+  }
+}

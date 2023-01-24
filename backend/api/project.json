@@ -1,0 +1,30 @@
+{
+  "name": "@back/api",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "./mvnw -pl :api -DskipTests=true clean package"
+      }
+    },
+    "dev": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "./mvnw -pl :api -am spring-boot:run -Dspring-boot.run.profiles=dev,local -Dspring-boot.run.arguments=\"--spring.datasource.url=jdbc:h2:file:../data/demo\""
+      }
+    },
+    "test": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "./mvnw -pl :api test"
+      }
+    },
+    "test:watch": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "nx test @back/api && nx watch --projects=@back/parent-pom,@back/entities,@back/repositories,@back/api -- nx test @back/api"
+      }
+    }
+  }
+}
