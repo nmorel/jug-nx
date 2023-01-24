@@ -62,5 +62,6 @@
     "dev": {
       "dependsOn": ["^build"]
     }
-  }
+  },
+  "plugins": ["@tools/backend-dep-graph"]
 }

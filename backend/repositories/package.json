@@ -4,9 +4,5 @@
     "build": "cd ../.. && ./mvnw -pl :repositories -DskipTests=true clean install",
     "test": "cd ../.. && ./mvnw -pl :repositories test",
     "test:watch": "nx test @back/repositories && nx watch --projects=@back/parent-pom,@back/entities,@back/repositories -- nx test @back/repositories"
-  },
-  "dependencies": {
-    "@back/entities": "*",
-    "@back/parent-pom": "*"
   }
 }
