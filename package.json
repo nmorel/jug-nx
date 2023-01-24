@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "postinstall": "pnpm run --filter \"@tools*\" build-plugin",
     "build": "nx run-many --target=build",
     "dev": "nx run-many --target=dev --verbose --output-style=stream",
     "serve": "pnpm build && java -jar ./bundle/dist/nx-polyglot.war --spring.datasource.url=jdbc:h2:file:./backend/data/demo",
@@ -14,6 +15,7 @@
   },
   "packageManager": "pnpm@7.13.4",
   "devDependencies": {
+    "@tools/backend-dep-graph": "workspace:*",
     "eslint-config-custom": "workspace:*",
     "nx": "^15.5.3",
     "prettier": "^2.8.3",

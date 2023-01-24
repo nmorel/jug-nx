@@ -3,3 +3,4 @@ packages:
   - 'bundle'
   - 'configs/*'
   - 'frontend/*'
+  - 'tools/*'

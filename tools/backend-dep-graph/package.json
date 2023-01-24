@@ -1,0 +1,23 @@
+{
+  "name": "@tools/backend-dep-graph",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "types": "./dist/index.d.ts",
+  "generators": "./generators.json",
+  "executors": "./executors.json",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@nrwl/devkit": "15.6.0",
+    "fast-xml-parser": "^4.0.14",
+    "nx": "^15.5.3"
+  },
+  "devDependencies": {
+    "typescript": "^4.9.3"
+  },
+  "scripts": {
+    "build-plugin": "tsc"
+  }
+}
