@@ -18,8 +18,12 @@
     }
   },
   "namedInputs": {
-    "srcFiles": ["{projectRoot}/src/**/*", "!{projectRoot}/src/test/**/*"],
-    "testFiles": ["{projectRoot}/src/**/*", "{projectRoot}/test/**/*"],
+    "srcFiles": [
+      "{projectRoot}/src/**/*",
+      "!{projectRoot}/src/**/test/**/*",
+      "!{projectRoot}/src/**/*.test.*"
+    ],
+    "allFiles": ["{projectRoot}/src/**/*", "{projectRoot}/test/**/*"],
     "jsConfig": [
       "{projectRoot}/package.json",
       "{workspaceRoot}/package.json",
@@ -47,12 +51,12 @@
     },
     "test": {
       "dependsOn": ["^build"],
-      "inputs": ["testFiles", "jsConfig", "javaConfig", "^buildFiles"],
+      "inputs": ["allFiles", "jsConfig", "javaConfig", "^buildFiles"],
       "outputs": ["{projectRoot}/target/surefire-reports"]
     },
     "lint": {
       "dependsOn": ["^build"],
-      "inputs": ["srcFiles", "testFiles", "eslintConfig"],
+      "inputs": ["allFiles", "eslintConfig"],
       "outputs": []
     },
     "dev": {
